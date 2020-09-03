@@ -1,0 +1,15 @@
+
+<h1>
+  <%= review.user_id %>:
+  <%= review.route.name %>
+</h1>
+<p>
+  <%= review.date %>
+  <%= review.time %>
+  <%= review.stars %>
+  <%= review.difficulty %>
+  <%= review.experience %>
+  <%= review.beta %>
+  <%= review.recommended %>
+</p>
+<%= link_to 'Delete', [review.route, review], method: :delete, data: {confirm: "Are you sure you want to delete your review?"}%>

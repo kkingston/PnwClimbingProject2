@@ -1,0 +1,28 @@
+<h1><%= @route.name %></h1>
+<hr />
+<div>Climbing Style: <%= @route.style %></div>
+<div>Grade: <%= @route.grade %></div>
+<div>Star Rating (out of 5): <%= @route.stars %></div>
+<div>Number of Pitches: <%= @route.pitches %></div>
+<div>Location: <%= @route.location %></div>
+<div>
+<hr />
+<%= link_to "Edit Route", edit_route_path(@route) %>
+<%= link_to "Delete Route", route_path(@route), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+<%= link_to "Back to Route List", root_path%>
+
+<section class="reviews">
+  <div>
+    <h3>
+      <%= @route.reviews.count %> Reviews
+    </h3>
+ 
+    <%= render @route.reviews %>
+
+    <div class="review-form">
+      <h3>Leave a Review</h3>
+      <%= render 'reviews/form' %>
+    </div>
+  </div>
+
+</section>

@@ -7,8 +7,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
   </head>
 
+  <nav>
+    <!--Profile link broken....
+    <%= link_to "Profile", '/users/:id' %>-->
+    <%= link_to "Create a New Route", new_route_path %>
+    <%= link_to "Routes List", routes_path %>
+    <%= link_to "Add a Review", new_review_path %>
+    <%= link_to "All Reviews", reviews_path %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+  </nav>
+  
   <body>
     <%= yield %>
   </body>

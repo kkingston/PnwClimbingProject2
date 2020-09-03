@@ -1,0 +1,41 @@
+<h1>Sign Up Here</h1>
+
+<%= form_for(@user) do |f| %>
+
+<div>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+</div>
+<br>
+<div>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</div>
+<br>
+<div>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+</div>
+<br>
+<div>
+  <%= f.label "Looking for a climbing partner?" %>
+    <%= f.radio_button(:partner, "Yes") %>
+    <%= f.label(:yes, "Yes") %>
+    <%= f.radio_button(:partner, "No") %>
+    <%= f.label(:no, "No") %>
+</div>
+<br>
+<div>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+  <br>
+  <%= f.label "Confirm Password" %>
+  <%= f.password_field :password_confirmation %>
+</div>
+<br>
+<div>
+  <%= f.submit %>
+</div>
+
+<% end %>

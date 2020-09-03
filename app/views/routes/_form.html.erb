@@ -1,0 +1,46 @@
+<div>
+  <%= form_with model: @route do |f| %>
+  <div>
+    <%= f.label("Name: ") %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div>
+    <div>
+       <%= f.label("Grade: ") %>
+       <%= f.text_field :grade %>
+    </div>
+  
+    <div>
+      <%= f.label("Style: ") %>
+      <%= f.radio_button(:style, "Sport") %>
+      <%= f.label(:sport, "Sport") %>
+      <%= f.radio_button(:style, "Trad") %>
+      <%= f.label(:trad, "Trad") %>
+      <%= f.radio_button(:style, "Boulder") %>
+      <%= f.label(:boulder, "Boulder") %>
+      <%= f.radio_button(:style, "Alpine") %>
+      <%= f.label(:alpine, "Alpine") %>
+    </div>
+  </div>
+  <div>
+    <%= f.label("Star Rating (out of 5): ") %>
+    <%= f.number_field(:stars, in: 0.0..5.0) %>
+  </div>
+  
+  <div>
+    <%= f.label("Pitches: ") %>
+    <%= f.number_field(:pitches, in: 0.0..50.0) %>
+  </div>
+  
+  <div>
+    <%= f.label("Location: ") %>
+    <%= f.text_field :location %>
+  </div>
+  
+  <div>
+    <%= f.submit %>
+  </div>
+  
+  <%end %>
+</div>

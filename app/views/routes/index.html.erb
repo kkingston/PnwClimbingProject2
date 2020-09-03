@@ -1,0 +1,24 @@
+<h1>Full Routes List</h1>
+<%= flash[:message] %>
+<h3>
+  <%= link_to "Create New Route", new_route_path%>
+</h3>
+<br>
+
+<% @routes.each do |route| %>
+  <div>
+    <div>Route Name: 
+      <%= link_to route.name, route %>
+    </div>
+    <div>Climbing Style: 
+      <%= route.style %>
+    </div>
+    <div>Grade: 
+      <%= route.grade %>
+    </div>
+    <div>
+      <%= link_to "Leave a Review", new_route_review_path(route.id) %>
+    </div>
+    <p>----------------------------------</p>
+  </div>
+<% end %>

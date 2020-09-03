@@ -1,0 +1,55 @@
+<div>
+  <%= form_with model: @review do |f| %>
+  <div>
+      <%= f.label("Date: ") %>
+      <%= f.date_field :date %>
+  </div>
+  
+  <div> 
+    <div>
+      <%= f.label("Time: ") %>
+      <%= f.radio_button(:time, "Morning") %>
+      <%= f.label(:morning, "Morning") %>
+      <%= f.radio_button(:time, "Afternoon") %>
+      <%= f.label(:afternoon, "Afternoon") %>
+      <%= f.radio_button(:time, "Evening") %>
+      <%= f.label(:evening, "Evening") %>
+      <%= f.radio_button(:time, "Night") %>
+      <%= f.label(:night, "Night") %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label("Star Rating (out of 5): ") %>
+    <%= f.number_field(:stars, in: 0.0..5.0) %>
+  </div>
+
+  <div>
+       <%= f.label("Difficulty: ") %>
+       <%= f.text_area :difficulty %>
+  </div>
+  
+  <div>
+    <%= f.label("My Experience: ") %>
+    <%= f.text_area :experience %>
+  </div>
+  
+  <div>
+    <%= f.label("Beta: ") %>
+    <%= f.text_area :beta %>
+  </div>
+
+  <div>
+    <%= f.label("Would you recommend this climb? ") %>
+      <%= f.radio_button(:recommended, "Yes") %>
+      <%= f.label(:yes, "Yes") %>
+      <%= f.radio_button(:recommended, "No") %>
+      <%= f.label(:no, "No") %>
+  </div>
+  
+  <div>
+    <%= f.submit %>
+  </div>
+  
+  <%end %>
+</div>

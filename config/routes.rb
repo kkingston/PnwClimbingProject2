@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  get '/', to: 'sessions#welcome'
+  get '/', to: 'sessions#welcome', as: "welcome"
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

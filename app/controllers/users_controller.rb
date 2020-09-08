@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+    @routes = Route.order_by_user
+    @reviews = Review.order_reviews_by_user
     redirect_to '/' if !@user
   end
 

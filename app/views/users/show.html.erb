@@ -3,4 +3,51 @@
 <div>Looking for a partner now? <%= @user.partner %></div>
 
 <h3>Your List of Routes Here</h3>
+<% @routes.each do |route| %>
+  <div>
+    <div>Route Name: 
+      <%= link_to route.name, route %>
+    </div>
+    <div>Climbing Style: 
+      <%= route.style %>
+    </div>
+    <div>Grade: 
+      <%= route.grade %>
+    </div>
+    <div>Created by: 
+      <%= route.user_id%>
+    </div>
+    <div>
+      <%= link_to "Leave a Review", route %>
+    </div>
+    <p>----------------------------------</p>
+  </div>
+<% end %>
+
+
 <h3>Your Reviews Here</h3>
+<% @reviews.each do |r| %>
+  <div>
+    <div>
+      <h3>
+        <%= r.stars %> Stars - <%= r.route.name %>
+      </h3>
+    </div>
+    <div>Experience: 
+      <%= r.experience %>
+    </div>
+    <br>
+    <div>Recommended?
+      <% if r.recommended == true %>
+        Yes
+      <% else %>
+        No 
+      <% end %>
+    </div>
+    <div>Created by: 
+      <%= route.user_id%>
+    </div>
+    <p>----------------------------------</p>
+  </div>
+<% end %>
+

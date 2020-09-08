@@ -1,0 +1,28 @@
+<h1>All Reviews Made (recently)</h1>
+
+<% @reviews.each do |review| %> 
+      <h3>
+        <%= review.stars %> Stars - <%= review.route.name %>
+      </h3>
+      <div>
+        Date: <%= review.date %> - Time of Day: <%= review.time %>
+      </div>
+      <div>
+        <%= review.experience %>
+      </div>
+      <div>Recommended?
+        <% if review.recommended == true %>
+          Yes
+        <% else %>
+          No 
+        <% end %>
+      </div>
+      <p>Reviewed by: <%= review.user.username %></p> 
+      <% if review.user_id == current_user.id %>
+        <%= link_to "Delete Review", review_path(@review), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+        <%= link_to "Back to Route List", routes_path%>      
+      <% else %>
+        <%= link_to "Back to Route List", routes_path%>
+      <% end %>
+      <div>---------------------------------------------------------------------</div>
+    <% end %>

@@ -2,7 +2,7 @@ class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
 
   def index
-    @routes = Route.all
+    @routes = Route.recently_added
   end
 
   def new 
@@ -11,16 +11,17 @@ class RoutesController < ApplicationController
 
   def create
     @route = Route.new(route_params)
+    @route.user_id = session[:user_id]
 
     if @route.save
       redirect_to route_path(@route)
     else 
-      flash[:errors] = @route.errors.full_messages
       render :new
     end
   end
 
   def show
+    @review = Review.new
   end
 
   def edit
@@ -38,16 +39,16 @@ class RoutesController < ApplicationController
   def destroy
     @route.destroy
 
-    redirect_to root_path
+    redirect_to routes_path
   end
 
   private
+ 
+    def route_params
+      params.require(:route).permit(:name, :style, :grade, :stars, :pitches, :location)
+    end
 
-  def route_params
-    params.require(:route).permit(:name, :style, :grade, :stars, :pitches, :location)
-  end
-
-  def set_route
-    @route = Route.find_by_id(params[:id])
-  end
+    def set_route
+      @route = Route.find_by_id(params[:id])
+    end
 end

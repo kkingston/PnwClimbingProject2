@@ -1,16 +1,16 @@
 <div>
-  <%= form_with model: @route do |f| %>
+  <%= form_for(@route) do |f| %>
   <div>
     <%= f.label("Name: ") %>
     <%= f.text_field :name %>
   </div>
-  
+  <br>
   <div>
     <div>
        <%= f.label("Grade: ") %>
        <%= f.text_field :grade %>
     </div>
-  
+  <br>
     <div>
       <%= f.label("Style: ") %>
       <%= f.radio_button(:style, "Sport") %>
@@ -23,21 +23,22 @@
       <%= f.label(:alpine, "Alpine") %>
     </div>
   </div>
+<br>
   <div>
     <%= f.label("Star Rating (out of 5): ") %>
     <%= f.number_field(:stars, in: 0.0..5.0) %>
   </div>
-  
+ <br> 
   <div>
     <%= f.label("Pitches: ") %>
     <%= f.number_field(:pitches, in: 0.0..50.0) %>
   </div>
-  
+ <br> 
   <div>
     <%= f.label("Location: ") %>
     <%= f.text_field :location %>
   </div>
-  
+  <br>
   <div>
     <%= f.submit %>
   </div>

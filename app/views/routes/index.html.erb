@@ -16,8 +16,11 @@
     <div>Grade: 
       <%= route.grade %>
     </div>
+    <div>Created by: 
+      <%= route.user_id%>
+    </div>
     <div>
-      <%= link_to "Leave a Review", new_route_review_path(route.id) %>
+       <%= route.reviews.count %> Reviews - <%= link_to "Leave a Review", route %>
     </div>
     <p>----------------------------------</p>
   </div>

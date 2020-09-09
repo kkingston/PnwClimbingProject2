@@ -19,3 +19,11 @@
   color: rgb(38, 39, 39);
   text-decoration: none;
  }
+
+ .boxwrapper {
+  display: flex;
+ }
+
+ .box{
+  flex: 50%;
+ }

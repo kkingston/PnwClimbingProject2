@@ -7,4 +7,6 @@ class Review < ApplicationRecord
   validates :experience, presence: true
 
   scope :order_reviews_by_user, -> {group(:user_id)}
+  scope :reviews_recently_added, -> {order(created_at: :desc)}
+
 end

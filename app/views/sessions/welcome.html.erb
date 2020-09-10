@@ -1,8 +1,22 @@
-<h1>Welcome to the PNW Climbing Project!!</h1>
-<p>
-  <%= link_to "Signup", signup_path%>
-  <br>
-  <br>
-  <%= link_to "Login", login_path %>
-  <%= button_to "Login with Google", "/auth/google_oauth2" %>
-</p>
+
+<% unless logged_in? %>
+  <h1>Welcome to the PNW Climbing Project!!</h1>
+  <p>
+    <%= link_to "Signup", signup_path%>
+    <br>
+    <br>
+    <%= link_to "Login", login_path %>
+    <%= button_to "Login with Google", "/auth/google_oauth2" %>
+  </p>
+
+ <% else %>
+      <h1>Welcome to the PNW Climbing Project!!</h1>
+      <h3>
+        What would you like to do?
+      </h3>
+      <%= link_to "My Profile", user_path(current_user) %> - 
+      <%= link_to "Routes List", routes_path %> - 
+      <%= link_to "Create a New Route", new_route_path %> - 
+      <%= link_to "All Reviews", reviews_path %> - 
+      <%= link_to "Logout", logout_path, method: :delete %>
+    <% end  %>

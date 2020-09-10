@@ -19,7 +19,7 @@
       </div>
       <p>Reviewed by: <%= review.user.username %></p> 
       <% if review.user_id == current_user.id %>
-        <%= link_to "Delete Review", review_path(@review), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+        <%= link_to "Delete Review", 'reviews/:id', method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
         <%= link_to "Back to Route List", routes_path%>      
       <% else %>
         <%= link_to "Back to Route List", routes_path%>

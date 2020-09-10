@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users 
   resources :reviews
   
   resources :routes do 
     resources :reviews
   end
+
+
 
   get '/', to: 'sessions#welcome', as: "welcome"
   get '/login', to: 'sessions#new'

@@ -3,18 +3,11 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show]
 
   def index
-    if @route = Route.find_by_id(params[:route_id])
-      @reviews = @routes.reviews
-    else
-      @reviews = Review.all  
-    end
+    @reviews = Review.reviews_recently_added  
   end
 
   def new
-    if @review = @route.reviews.build
-    else
-      @review = Review.new 
-    end
+    @reviews = route.reviews.build
   end
 
   def create
@@ -24,10 +17,6 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-   
   end
 
   def destroy

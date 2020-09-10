@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   # logging in, logging out, omniauth
   def welcome
+    @user = User.find_by_id(params[:id])
   end
 
   def new 
